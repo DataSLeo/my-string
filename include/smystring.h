@@ -43,7 +43,12 @@ enum ErrorMyString {
     /** 
     * @brief Relocation memory fails. 
     */
-    MYSTRING_PHRASE_CANNOT_BE_RELOCATED
+    MYSTRING_PHRASE_CANNOT_BE_RELOCATED,
+
+    /** 
+    * @brief Operation needs a phrase and does not have it. 
+    */
+    MYSTRING_OPERATION_NEEDS_A_PHRASE
 };
 
 

@@ -14,6 +14,7 @@
 - Assign and compare string values (`assign_string`, `equals_string`);
 - Character count (`counter_string`);
 - Concatenate two `MyString` objects (`concat_string`);
+- To Uppercase (`touppercase_string`);
 - Handle errors internally using `id_error`;
 - Removing all spaces in the string (`remasp_string`);
 - Removing all left spaces and some special character ('\\t', '\\r', '\\n') in the string (`lstrip_string`);
