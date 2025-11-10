@@ -1,7 +1,7 @@
 #include "smystring.h"
 #include "bop_mystring.h"
 #include <stdlib.h>
-
+#include <ctype.h>
 
 int counter_string(char *buff) {
 
@@ -261,4 +261,61 @@ enum ErrorMyString lstrip_string(struct MyString *object_string) {
 
     del_string(&copy_original_phrase);
     return MYSTRING_NONE;
+}
+
+enum ErrorMyString touppercase_string(struct MyString *object_string) {
+
+    if(object_string->phrase == NULL) {
+        object_string->id_error = MYSTRING_PHRASE_NOT_INITIALIZED;
+        return MYSTRING_PHRASE_NOT_INITIALIZED;    
+    }
+
+    if(object_string->phrase[0] == '\0') {
+        object_string->id_error = MYSTRING_OPERATION_NEEDS_A_PHRASE;
+        return MYSTRING_OPERATION_NEEDS_A_PHRASE;
+    }
+
+
+    // RESET
+    object_string->id_error = ID_ERROR_RESETED;
+
+    int copy_length = object_string->length;
+    object_string->length = LENGTH_RESETED;
+
+    char copy_phrase[copy_length+1];
+
+    for(int i = 0; i < copy_length; i++) {
+        copy_phrase[i] = object_string->phrase[i];
+    }
+
+    copy_phrase[copy_length] = '\0';
+
+
+    // TOUPPER
+    struct MyString temporary_object;
+    char buff[copy_length+1];
+    
+    for(int i = 0; i < copy_length; i++) {
+    
+        char result = toupper(copy_phrase[i]); 
+        buff[i] = result;
+    
+    }
+
+    buff[copy_length] = '\0';
+
+
+    // CLOSING STRING
+    enum ErrorMyString e;
+
+    e = assign_string(object_string, buff);
+    
+    if(e != MYSTRING_NONE) {
+        object_string->id_error = e;
+        object_string->length = copy_length;
+        return e;
+    }
+
+    return MYSTRING_NONE;
+
 }

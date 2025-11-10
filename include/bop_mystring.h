@@ -105,4 +105,13 @@ enum ErrorMyString remasp_string(struct MyString *object_string);
 enum ErrorMyString lstrip_string(struct MyString *object_string); 
 
 
-#endif 
+/**
+* @brief To uppercase the phrase of MyString object.
+*
+* @param object_string Pointer to the MyString object.
+* 
+* @return MYSTRING_NONE on success, MYSTRING_PHRASE_NOT_INITIALIZED if memory allocation fails, MYSTRING_OPERATION_NEEDS_A_PHRASE if phrase is empty.
+*/
+enum ErrorMyString touppercase_string(struct MyString *object_string);
+
+#endif
