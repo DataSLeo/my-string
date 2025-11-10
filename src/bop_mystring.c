@@ -319,3 +319,18 @@ enum ErrorMyString touppercase_string(struct MyString *object_string) {
     return MYSTRING_NONE;
 
 }
+
+int isequal_string(struct MyString object_string, char *phrase) {
+
+    int length_os = object_string.length;
+    int length_phrase = counter_string(phrase);
+
+    if(length_os != length_phrase) return 0;
+
+    for(int i = 0; i < length_os; i++) {
+        if(object_string.phrase[i] != phrase[i]) return 0; 
+    }
+
+    return 1;
+
+}

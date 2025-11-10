@@ -114,4 +114,16 @@ enum ErrorMyString lstrip_string(struct MyString *object_string);
 */
 enum ErrorMyString touppercase_string(struct MyString *object_string);
 
+
+/**
+ * @brief Checks if the MyString object's phrase is equal to the given phrase.
+ * 
+ * @param object_string Pointer to the MyString object.
+ * @param phrase The phrase to compare with the MyString object's phrase.
+ * 
+ * @return 1 if the phrases are equal, 0 otherwise.
+ */
+int isequal_string(struct MyString object_string, char *phrase);
+
+
 #endif
